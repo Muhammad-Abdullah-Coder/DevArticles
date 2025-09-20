@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Edit Article: "{{ object.title }}"</h2>
+    <form method="POST" class="border p-4 rounded shadow">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-save"></i> Save Changes
+            </button>
+        </div>
+    </form>
+    <div class="text-center mt-3">
+        <a href="{% url 'article_detail' object.pk %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Article
+        </a>
+    </div>
+</div>
+{% endblock %}

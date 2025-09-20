@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2 class="text-center mb-4">Create New Article</h2>
+    <form method="POST" class="bg-secondary text-light p-4 rounded shadow-sm">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.as_p }}
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Create Article</button>
+      <a href="{% url 'home' %}" class="btn btn-secondary btn-block">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

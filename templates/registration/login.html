@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="card p-4 mt-5 shadow">
+    <h2 class="card-title text-center mb-4">Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+    <p class="text-center mt-3">
+        Don't have an account? <a href="{% url 'signup' %}" class="link-primary">Sign up here</a>.
+    </p>
+    <p class="text-center">
+        <i class="fas fa-unlock-alt"></i>
+        Forgot your password? <a href="{% url 'password_reset' %}" class="link-danger">Click here to reset your password</a>.
+    </p>
+</div>
+
+    <br>
+{% endblock %}
